@@ -1,2 +1,2 @@
 # PL2023
-Processamento de Linguagens
+Resolução dos TPCs propostos em Processamento de Linguagens.
