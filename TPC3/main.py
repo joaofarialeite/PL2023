@@ -1,14 +1,9 @@
-# This is a sample Python script.
 import json
-# Press Shift+F10 to execute it or replace it with your code.
-# Press Double Shift to search everywhere for classes, files, tool windows, actions, and settings.
-
-
 import re
 from collections import Counter
 
 
-def frequencia_por_ano1(ficheiro):
+def frequencia_processos_por_ano(ficheiro):
 
     frequencias = {}
     ano_regex = re.compile(r'^\d+::(?P<ano>\d{4})-')
@@ -66,10 +61,9 @@ def frequencia_relacoes(ficheiro):
     print(Counter(relacoes))
 
 
-def processos_to_json(ficheiro, output_file):
+def registos_to_json(ficheiro, output_file):
 
-
-    registro_regex = re.compile(r'^(?P<Processo>\d+)::(?P<data_nascimento>\d{4}-\d{2}-\d{2})::(?P<Nome>\w+\s*\w*)::(?P<Pai>\w+\s*\w*)::(?P<Mae>\w+\s*\w*)(::(?P<Observacoes>.+))?')
+    registro_regex = re.compile(r'^(?P<Processo>\d+)::(?P<data_nascimento>\d{4}-\d{2}-\d{2})::(?P<Nome>\w+\s*\w*\s*\w*)::(?P<Pai>\w+\s*\w*\s*\w*)::(?P<Mae>\w+\s*\w*\s*\w*)(::(?P<Observacoes>.+))?')
     processados = []
     contador = 0
 
@@ -96,18 +90,16 @@ def processos_to_json(ficheiro, output_file):
         json.dump(processados, f, indent=2, ensure_ascii=False)
 
 
-# Press the green button in the gutter to run the script.
+
 if __name__ == '__main__':
 
-    #frequencia_processos_por_ano('processos.txt')
-
-    #frequencia_por_ano1('processos.txt')
+    frequencia_processos_por_ano('processos.txt')
 
     #frequencia_nomes_e_apelidos_por_seculo('processos.txt')
 
-    frequencia_relacoes('processos.txt')
+    #frequencia_relacoes('processos.txt')
 
-    #processos_to_json('processos.txt','test.json')
+    #registos_to_json('processos.txt','test.json')
 
 
 # See PyCharm help at https://www.jetbrains.com/help/pycharm/
