@@ -136,6 +136,7 @@ def parsing():
 
             if re_pousar:
                 print(f'maq: troco={converter_em_str(saldo)}; Volte sempre!')
+                break
 
         else:
             print("maq: Comando invalido")
